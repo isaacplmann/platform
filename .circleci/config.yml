@@ -360,7 +360,10 @@ workflows:
               only: master
       - build-affected:
           requires:
-            - test-affected
+            - install
+          filters:
+            tags:
+              only: /.*/
       - example-e2e-tests:
           requires:
             - install
